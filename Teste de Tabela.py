@@ -22,7 +22,7 @@ def parse_expression(user_input):
 
 #Exemplo de uso
 variables = ['A', 'B', 'C', 'D', 'E']
-#user_input = '...'
+user_input = '(A AND B) OR (NOT C AND D)'
 
-"""expression = parse_expression(user_input)
-generate_truth_table(variables, expression)"""
+expression = parse_expression(user_input)
+generate_truth_table(variables, expression)
