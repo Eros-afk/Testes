@@ -21,8 +21,8 @@ def parse_expression(user_input):
     return user_input.replace('AND', 'and').replace('OR', 'or').replace('NOT', 'not')
 
 #Exemplo de uso
-variables = ['A', 'B', 'C', 'D', 'E']
-user_input = '(A AND B) OR (NOT C AND D)'
+variables = ['A', 'B']
+user_input = '(A AND B)'
 
 expression = parse_expression(user_input)
 generate_truth_table(variables, expression)
