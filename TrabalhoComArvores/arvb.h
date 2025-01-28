@@ -2,14 +2,10 @@ typedef struct arvb ArvB;
 
 /*Função que cria uma Árvore Binária Vazia.*/
 ArvB* arvb_cria_vazia(void);
-/*Função que cria um nó em uma Árvore Binária.*/
-ArvB* arvb_cria_no(char c, ArvB *sae, ArvB *sad);
 /*Testa se uma Árvore Binária é vazia.*/
 int arvb_vazia(ArvB *a);
-/*Função que imprime os elementos de uma Árvore Binária.*/
-void arvb_imprime(ArvB *a);
 /*Função que determina se um caractere pertence à Árvore.*/
-int arvb_pertence(ArvB *a,char c);
+int arvb_pertence(ArvB *a,int c);
 /*Libera o espaço alocado para uma Árvore Binária.*/
 void arvb_libera(ArvB *a);
 
@@ -26,4 +22,6 @@ ArvB* arvb_remove(ArvB *a, int c);
 
 //FUNÇÕES NOVAS
 
+int eh_primo(int numero);
+int contar_folhas_primos(ArvB* a);
 int folhas_primos(ArvB* a);

@@ -12,7 +12,7 @@ ArvB* arvb_cria_vazia(void){
     return NULL;
 }
 
-ArvB* arvb_cria_no(char c, ArvB *sae, ArvB *sad){
+ArvB* arvb_cria_no(int c, ArvB *sae, ArvB *sad){
     ArvB* a = (ArvB*)malloc(sizeof(ArvB));
     a->info = c;
     a->esq = sae;
@@ -24,27 +24,19 @@ int arvb_vazia(ArvB *a){
     return a==NULL;
 }
 
-void arvb_imprime(ArvB *a){
-    if(!arvb_vazia(a)){
-        printf("%c ",a->info);
-        arvb_imprime(a->esq);
-        arvb_imprime(a->dir);
-    }
-}
-
-int arvb_pertence(ArvB *a,char c){
+int arvb_pertence(ArvB *a,int c){
     if(arvb_vazia(a))
-    return 0;
+        return 0;
     else
-    return a->info ==c || arvb_pertence(a->esq,c)
+        return a->info ==c || arvb_pertence(a->esq,c)
     || arvb_pertence(a->dir,c);
 }
 
 void arvb_libera(ArvB *a){
     if(!arvb_vazia(a)){
-    arvb_libera(a->esq);
-    arvb_libera(a->dir);
-    free(a);
+        arvb_libera(a->esq);
+        arvb_libera(a->dir);
+        free(a);
     }
 }
 
@@ -123,8 +115,32 @@ if(!arvb_vazia(a)){
     return a;
 }
 
-//FUNÇÕES NOVAS
+/////////////////FUNÇÕES NOVAS////////////////////////////////////////////////////////////////////////////
 
-int folhas_primos(ArvB* a){
-    
+// Função para verificar se um número é primo
+int eh_primo(int numero) {
+    if (numero < 2) return 0; // Números menores que 2 não são primos, mou~ 
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) return 0; // Se for divisível por algum número, não é primo
+    }
+    return 1; // É primo, sugoi desu ne? 
+}
+
+// Função recursiva para contar folhas primas
+int contar_folhas_primos(ArvB* a) {
+    if (arvb_vazia(a)) return 0; // Se a árvore estiver vazia, retorna 0, desu~!
+
+    // Se for uma folha e o valor for primo, retorna 1
+    if (a->esq == NULL && a->dir == NULL && eh_primo(a->info)) {
+        return 1;
+    }
+
+    // Soma as folhas primas da subárvore esquerda e direita
+    return contar_folhas_primos(a->esq) + contar_folhas_primos(a->dir);
+}
+
+// Função principal que inicia a contagem
+int folhas_primos(ArvB* a) {
+    if (arvb_vazia(a)) return 0; // Árvore vazia, mou~ 
+    return contar_folhas_primos(a);
 }
