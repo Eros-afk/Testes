@@ -9,6 +9,7 @@ int arvb_pertence(ArvB *a,int c);
 /*Libera o espaço alocado para uma Árvore Binária.*/
 void arvb_libera(ArvB *a);
 
+/*Função para encontrar a altura de uma arvore*/
 int arvb_altura(ArvB *a);
 
 /*Função que busca a sub-árvore que contém um inteiro.*/
