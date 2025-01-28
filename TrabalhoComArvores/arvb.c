@@ -1,6 +1,6 @@
-#include "arvb.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "arvb.h"
 
 struct arvb{
     int info;
