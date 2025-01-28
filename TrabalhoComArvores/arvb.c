@@ -122,3 +122,9 @@ if(!arvb_vazia(a)){
     }
     return a;
 }
+
+//FUNÇÕES NOVAS
+
+int folhas_primos(ArvB* a){
+    
+}

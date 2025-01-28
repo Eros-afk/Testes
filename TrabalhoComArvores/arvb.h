@@ -3,7 +3,7 @@ typedef struct arvb ArvB;
 /*Função que cria uma Árvore Binária Vazia.*/
 ArvB* arvb_cria_vazia(void);
 /*Função que cria um nó em uma Árvore Binária.*/
-ArvB* arv_cria_no(char c, ArvB *sae, ArvB *sad);
+ArvB* arvb_cria_no(char c, ArvB *sae, ArvB *sad);
 /*Testa se uma Árvore Binária é vazia.*/
 int arvb_vazia(ArvB *a);
 /*Função que imprime os elementos de uma Árvore Binária.*/
@@ -23,3 +23,7 @@ void arvb_imprime(ArvB *a);
 ArvB* arvb_insere(ArvB *a, int c);
 /*Função que remove um inteiro em uma Árvore.*/
 ArvB* arvb_remove(ArvB *a, int c);
+
+//FUNÇÕES NOVAS
+
+int folhas_primos(ArvB* a);
