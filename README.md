@@ -1,6 +1,7 @@
 # Testes
  Testes da tabela verdade
 
+# Work by Eros Ryan Simette
 
 int main(void){
 
