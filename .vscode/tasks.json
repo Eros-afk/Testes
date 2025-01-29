@@ -9,7 +9,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "main.c",       // Adicione todos os arquivos fonte aqui
-                "arvb.c",        // Adicione todos os arquivos fonte aqui
+                "arvb.c",       // Adicione todos os arquivos fonte aqui
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
@@ -24,6 +24,37 @@
                 "isDefault": true
             },
             "detail": "Tarefa gerada pelo usuário."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc build metodosSort",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "metodosSort.c", // Arquivo fonte a ser compilado
+                "-o",
+                "${fileDirname}/metodosSort" // Nome do executável
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compila o arquivo metodosSort.c"
+        },
+        {
+            "label": "run metodosSort",
+            "type": "shell",
+            "command": "${fileDirname}/metodosSort", // Executa o programa compilado
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Executa o programa metodosSort"
         }
     ]
 }
