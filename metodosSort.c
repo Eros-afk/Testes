@@ -166,7 +166,7 @@ int main() {
 
     int sizes[] = {100, 1000, 10000, 100000, 1000000}; // Tamanhos dos vetores
     int numSizes = sizeof(sizes) / sizeof(sizes[0]);
-    int numTests = 10; // Número de testes para calcular a média
+    int numTests = 1; // Número de testes para calcular a média
 
     for (int i = 0; i < numSizes; i++) {
         int n = sizes[i];

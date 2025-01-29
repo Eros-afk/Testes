@@ -3,15 +3,14 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build all files",
+            "label": "C/C++: gcc build metodosSort.c",
             "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "main.c",       // Adicione todos os arquivos fonte aqui
-                "arvb.c",       // Adicione todos os arquivos fonte aqui
+                "metodosSort.c", // Certifique-se de que este arquivo existe no diretório do projeto
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/metodosSort"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -23,32 +22,12 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo usuário."
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: gcc build metodosSort",
-            "command": "/usr/bin/gcc",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "metodosSort.c", // Arquivo fonte a ser compilado
-                "-o",
-                "${fileDirname}/metodosSort" // Nome do executável
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
             "detail": "Compila o arquivo metodosSort.c"
         },
         {
             "label": "run metodosSort",
             "type": "shell",
-            "command": "${fileDirname}/metodosSort", // Executa o programa compilado
+            "command": "${fileDirname}/metodosSort", // Corrigido para rodar o executável sem extensão .c
             "group": {
                 "kind": "test",
                 "isDefault": true
