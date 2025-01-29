@@ -21,10 +21,15 @@ ArvB* arvb_insere(ArvB *a, int c);
 /*Função que remove um inteiro em uma Árvore.*/
 ArvB* arvb_remove(ArvB *a, int c);
 
-//FUNÇÕES NOVAS
+/////////FUNÇÕES NOVAS//////////////////////////////////////////////////
 
 int eh_primo(int numero);
 int contar_folhas_primos(ArvB* a);
 int folhas_primos(ArvB* a);
 
 int dois_filhos(ArvB* a);
+
+int arvb_altura_igual(ArvB *a);
+int nos_igual_altura(ArvB* a);
+
+//int iguais(ArvB* a, ArvB* b);

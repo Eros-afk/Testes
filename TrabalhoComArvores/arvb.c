@@ -146,9 +146,41 @@ int folhas_primos(ArvB* a) {
 }
 
 
-int dois_filhos(ArvB* a){
+int dois_filhos(ArvB* a) {
     if (arvb_vazia(a))
         return 0;
     if (a->esq != NULL && a->dir != NULL)
-        return dois_filhos(a->dir) + dois_filhos(a->esq) + 1;
+        return 1 + dois_filhos(a->esq) + dois_filhos(a->dir);
+    else
+        return dois_filhos(a->esq) + dois_filhos(a->dir);
 }
+
+
+int arvb_altura_igual(ArvB *a){
+    if(arvb_vazia(a))
+        return 0;
+    else{
+        int hSAE = arvb_altura(a->esq);
+        int hSAD = arvb_altura(a->dir);
+        if(hSAE == hSAD && !arvb_vazia(a->esq) && !arvb_vazia(a->dir))
+            return 1;
+        else
+            return 0;
+ }
+}
+
+int nos_igual_altura(ArvB* a){
+    if (arvb_vazia(a))
+        return 0;
+    int count = arvb_altura_igual(a);
+    
+    return count + nos_igual_altura(a->esq) + nos_igual_altura(a->dir);
+}
+
+
+/*int iguais(ArvB* a, ArvB* b){
+    if(a == b)
+    return 1;
+    else
+    return 0;
+}*/
