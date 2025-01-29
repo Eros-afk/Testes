@@ -149,7 +149,7 @@ int folhas_primos(ArvB* a) {
 int dois_filhos(ArvB* a) {
     if (arvb_vazia(a))
         return 0;
-    if (a->esq != NULL && a->dir != NULL)
+    if (a->esq != NULL && a->dir != NULL) //Verifica se o nó atual tem dois filhos
         return 1 + dois_filhos(a->esq) + dois_filhos(a->dir);
     else
         return dois_filhos(a->esq) + dois_filhos(a->dir);
@@ -158,29 +158,39 @@ int dois_filhos(ArvB* a) {
 
 int arvb_altura_igual(ArvB *a){
     if(arvb_vazia(a))
-        return 0;
+        return 0; //Arvore vazia não tem subárvore
     else{
-        int hSAE = arvb_altura(a->esq);
-        int hSAD = arvb_altura(a->dir);
+        int hSAE = arvb_altura(a->esq); //Altura subárvore esq
+        int hSAD = arvb_altura(a->dir); //Altura subárvore dir
+        //Verifica se as alturas são iguais e se ambas as subárvores não são vazias
         if(hSAE == hSAD && !arvb_vazia(a->esq) && !arvb_vazia(a->dir))
-            return 1;
+            return 1; //Nó atual valido
         else
-            return 0;
+            return 0; //Nó atual !valido
  }
 }
 
 int nos_igual_altura(ArvB* a){
     if (arvb_vazia(a))
-        return 0;
+        return 0; //Árvore vazia não tem nós
+    //Verifica se o atual nó atende à condição
     int count = arvb_altura_igual(a);
     
+    //Soma os nós que atendem à condição nas subárvores esq e dir
     return count + nos_igual_altura(a->esq) + nos_igual_altura(a->dir);
 }
 
 
-/*int iguais(ArvB* a, ArvB* b){
-    if(a == b)
-    return 1;
-    else
-    return 0;
-}*/
+int iguais(ArvB* a, ArvB* b){
+    //Caso base: ambas as árvores são vazias
+    if(arvb_vazia(a) && arvb_vazia(b))
+        return 1; //Ávores vazias iguais
+    //Caso base: uma das árvores é vazia e outra não
+    if(arvb_vazia(a) || arvb_vazia(b))
+        return 0; //Árvore diferentes
+    //Verifica se os valores valores dos nós atuais são iguais
+    if (a->info != b->info)
+        return 0; //Valores diferentes
+    //Verifica recursivamnete as subárvores esq e dir
+    return iguais(a->esq, b->esq) && iguais(a->dir, b->dir);
+}

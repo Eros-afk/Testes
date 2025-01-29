@@ -32,4 +32,4 @@ int dois_filhos(ArvB* a);
 int arvb_altura_igual(ArvB *a);
 int nos_igual_altura(ArvB* a);
 
-//int iguais(ArvB* a, ArvB* b);
+int iguais(ArvB* a, ArvB* b);
