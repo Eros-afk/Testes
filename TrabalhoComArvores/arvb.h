@@ -26,3 +26,5 @@ ArvB* arvb_remove(ArvB *a, int c);
 int eh_primo(int numero);
 int contar_folhas_primos(ArvB* a);
 int folhas_primos(ArvB* a);
+
+int dois_filhos(ArvB* a);

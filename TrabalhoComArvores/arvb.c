@@ -119,28 +119,36 @@ if(!arvb_vazia(a)){
 
 // Função para verificar se um número é primo
 int eh_primo(int numero) {
-    if (numero < 2) return 0; // Números menores que 2 não são primos, mou~ 
+    if (numero < 2) return 0; // Números menores que 2 não são primos
     for (int i = 2; i * i <= numero; i++) {
         if (numero % i == 0) return 0; // Se for divisível por algum número, não é primo
     }
-    return 1; // É primo, sugoi desu ne? 
+    return 1; // É primo
 }
 
-// Função recursiva para contar folhas primas
+// Função recursiva para contar folhas primos
 int contar_folhas_primos(ArvB* a) {
-    if (arvb_vazia(a)) return 0; // Se a árvore estiver vazia, retorna 0, desu~!
+    if (arvb_vazia(a)) return 0; // Se a árvore estiver vazia, retorna 0
 
     // Se for uma folha e o valor for primo, retorna 1
     if (a->esq == NULL && a->dir == NULL && eh_primo(a->info)) {
         return 1;
     }
 
-    // Soma as folhas primas da subárvore esquerda e direita
+    // Soma as folhas primos da subárvore esquerda e direita
     return contar_folhas_primos(a->esq) + contar_folhas_primos(a->dir);
 }
 
 // Função principal que inicia a contagem
 int folhas_primos(ArvB* a) {
-    if (arvb_vazia(a)) return 0; // Árvore vazia, mou~ 
+    if (arvb_vazia(a)) return 0; // Árvore vazia
     return contar_folhas_primos(a);
+}
+
+
+int dois_filhos(ArvB* a){
+    if (arvb_vazia(a))
+        return 0;
+    if (a->esq != NULL && a->dir != NULL)
+        return dois_filhos(a->dir) + dois_filhos(a->esq) + 1;
 }
